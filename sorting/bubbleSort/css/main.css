@@ -56,6 +56,9 @@
 .card .suit{
 	grid-row: 1;
 }
+.card .drop-zone{
+	background-color: green;
+}
 .spades{
 }
 .clubs{
@@ -65,4 +68,8 @@
 }
 .diamonds{
 	color:red;
+}
+
+.drag-zone{
+	opacity: .5
 }

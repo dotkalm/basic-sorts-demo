@@ -1,18 +1,5 @@
 console.log('inside the console')
-const deck = shuffleDeck()
-function dropHandler(event){
-	console.log(event.target.id, '<=== drop handler')
-	event.preventDefault();
-}
-function dragOverHandler(event){
-	//trigger some kind of animation on hover
-	//console.log(event.target.id)
-	event.preventDefault();
-}
-function dragStartHandler(event){
-	console.log(event.target.id, '<=== drag start handler')
-	event.preventDefault();
-}
+
 const deckZone = document.querySelector(".deck-zone")
 function loadDeck(){
 	console.log(deck)
