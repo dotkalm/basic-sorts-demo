@@ -1,4 +1,3 @@
-loadDeck()
 function loadDeck(){
 	const suitMap = { 
 		spades: "\u2660",
@@ -8,6 +7,7 @@ function loadDeck(){
 	}
 	const deckZone = document.querySelector(".deck-zone")
 	checkStatus()
+		console.log(deck)
 	for(const i in deck){
 		const { rank, suit } = deck[i]
 		const card = document.createElement("div")
@@ -22,15 +22,11 @@ function loadDeck(){
 		rankCard.setAttribute("class", "rank")
 		const suitCard = document.createElement("div")
 		suitCard.setAttribute("class", "suit")
-		const suitCardFace = document.createElement("div")
-		suitCardFace.setAttribute("class", "suit-face")
 		card.style.backgroundImage = `url("assets/${suit}.svg")`
 		rankCard.innerText = isNaN(Number(rank)) ? rank[0] : rank
 		suitCard.innerText = suitMap[suit] 
-		suitCardFace.innerText = suitMap[suit] 
 		card.appendChild(rankCard)
 		card.appendChild(suitCard)
-		//card.appendChild(suitCardFace)
 		deckZone.appendChild(card)
 	}
 }
@@ -50,7 +46,6 @@ function makeSwap(from, to){
 		currentPair[1] = 1
 		if(swapHappened === null){
 			swapHappened = false 
-			return
 		}
 		swapHappened = null 
 	}else{
@@ -60,10 +55,20 @@ function makeSwap(from, to){
 	loadDeck()
 }
 function automateBubble(){
+	const rankingArray = ranking()
 	//while(swapHappened !== false){ }
 	const [ left, right ] = currentPair
-	const leftCard = deck[left]
+	const leftCard = deck[Number(left)]
 	const rightCard = deck[right]
+	function getIndex({rank}){
+		return rankingArray.indexOf(rank)
+	}
+	const leftIndex = getIndex(leftCard)
+	const rightIndex = getIndex(rightCard)
 	console.log(leftCard, rightCard)
+	console.log(leftIndex, rightIndex)
 }
-automateBubble()
+window.onload = () => {
+	loadDeck()
+	//automateBubble()
+}

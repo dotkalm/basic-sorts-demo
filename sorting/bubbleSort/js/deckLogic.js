@@ -13,7 +13,7 @@ function checkStatus(){
 		if(left >= 0){
 			swapHappenedLabel.innerText = "Bubbling BRB..."
 		}
-		if(right === deck.length - 1){
+		if(deck && right === deck.length - 1){
 			swapHappenedLabel.innerText = "SORTED!"
 		}
 	}
