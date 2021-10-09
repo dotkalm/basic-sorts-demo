@@ -7,7 +7,6 @@ function loadDeck(){
 	}
 	const deckZone = document.querySelector(".deck-zone")
 	checkStatus()
-		console.log(deck)
 	for(const i in deck){
 		const { rank, suit } = deck[i]
 		const card = document.createElement("div")
@@ -67,8 +66,13 @@ function automateBubble(){
 	const rightIndex = getIndex(rightCard)
 	console.log(leftCard, rightCard)
 	console.log(leftIndex, rightIndex)
+	if(leftIndex <= rightIndex){
+		makeSwap(left, right)
+	}else{
+		makeSwap(right, left)
+	}
 }
 window.onload = () => {
 	loadDeck()
-	//automateBubble()
+	automateBubble()
 }
