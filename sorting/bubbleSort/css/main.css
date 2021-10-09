@@ -1,6 +1,7 @@
 *{
 	margin:0;
 	padding:0;
+	box-sizing: border-box;
 }
 .deck-zone{
 	display: grid;
@@ -12,7 +13,6 @@
 	grid-template-columns: repeat(11 , 9vmin);
 	grid-template-rows: repeat(6 , 12vmin);
 	gap:2vmin;
-	padding: 2vmin;
 }
 @media (max-width: 1250px) {
 	.deck-zone{
@@ -39,14 +39,13 @@
 	grid-template-columns: repeat(10 , 10%);
 	grid-template-rows: repeat(10 , 10%);
 	background-color: antiquewhite;
-	border-radius: 20%;
-
-}
-.card img{
-	grid-row: 5/10;
-	grid-column: 5/10;
-	width: 90%;
-	height: 90%;
+	border: .3vmin solid black;
+	margin: 2vmin;
+	border-radius: 15%;
+	background-size: 80%;
+	background-repeat: no-repeat;
+	background-position-y: 5vmin;
+	background-position-x: 1.5vmin;
 }
 .card .rank{
 	grid-row: 2;

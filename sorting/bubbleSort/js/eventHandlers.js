@@ -4,12 +4,15 @@ let dragOverHandlerIndex
 let dragStartHandlerIndex
 let dropHandlerIndex 
 
+function dragEndHandler({}){
+	clearDragZone()
+}
 function dropHandler({target}){
 	event.preventDefault();
 	const { id, className } = target
 	if(id){
 		clearDragZone()
-		makeSwap(dragStartHandlerIndex, dragLeaveHandlerIndex)
+		makeSwap(dragStartHandlerIndex, Number(id))
 	}
 }
 function dragLeaveHandler({target}){
@@ -42,7 +45,7 @@ function dragOverHandler({target}){
 function dragStartHandler({target}){
 	const { id } = target
 	event.preventDefault();
-	if(id !== dragStartHandlerIndex){
+	if(id && id !== dragStartHandlerIndex){
 		dragStartHandlerIndex = Number(id)
 	}
 }

@@ -10,16 +10,11 @@ function loadDeck(){
 		card.setAttribute("id", i)
 		const rankCard = document.createElement("div")
 		rankCard.setAttribute("class", "rank")
-		rankCard.setAttribute("draggable", false)
 		const suitCard = document.createElement("div")
 		suitCard.setAttribute("class", "suit")
-		const image = document.createElement("img")
-		image.setAttribute("draggable", false)
-		image.setAttribute("src", `assets/${suit}.svg`)
-		image.style.zIndex = 0
+		card.style.backgroundImage = `url("assets/${suit}.svg")`
 		rankCard.innerText = isNaN(Number(rank)) ? rank[0] : rank
 		suitCard.innerText = suit 
-		card.appendChild(image)
 		card.appendChild(rankCard)
 		deckZone.appendChild(card)
 	}
