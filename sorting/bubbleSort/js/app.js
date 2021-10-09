@@ -1,16 +1,13 @@
 loadDeck()
 
-const deckZone = document.querySelector(".deck-zone")
-function paintCard(card, rank, suit){
-}
 function loadDeck(){
-	console.log(deck)
+	const deckZone = document.querySelector(".deck-zone")
 	for(const i in deck){
 		const { rank, suit } = deck[i]
 		const card = document.createElement("div")
 		card.setAttribute("class", `card ${suit}`)
 		card.setAttribute("draggable", true)
-		card.setAttribute("id", Number(i)+1)
+		card.setAttribute("id", i)
 		const rankCard = document.createElement("div")
 		rankCard.setAttribute("class", "rank")
 		rankCard.setAttribute("draggable", false)
@@ -28,6 +25,12 @@ function loadDeck(){
 	}
 }
 function makeSwap(from, to){
-	console.log(from, to, '<---- inside make swap')
+	const deckZone = document.querySelector(".deck-zone")
+	const fromElement = deck[from]
+	const toElement = deck[to]
+	deck[from] = toElement 
+	deck[to] = fromElement 
+	deckZone.innerHTML = ''
+	loadDeck()
 }
 
