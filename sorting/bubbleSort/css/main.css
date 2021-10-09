@@ -1,0 +1,68 @@
+*{
+	margin:0;
+	padding:0;
+}
+.deck-zone{
+	display: grid;
+	background-color: pink;
+	align-content: center;
+	justify-items: stretch;
+	justify-content: center;
+	align-items: center;
+	grid-template-columns: repeat(11 , 9vmin);
+	grid-template-rows: repeat(6 , 12vmin);
+	gap:2vmin;
+	padding: 2vmin;
+}
+@media (max-width: 1250px) {
+	.deck-zone{
+		grid-template-columns: repeat(10 , 9vmin);
+		grid-template-rows: repeat(6 , 12vmin);
+	}
+}
+@media (max-width: 1150px) {
+	.deck-zone{
+		grid-template-columns: repeat(9 , 7vmin);
+		grid-template-rows: repeat(6 , 10vmin);
+	}
+}
+@media (max-width: 925px) {
+	.deck-zone{
+		grid-template-columns: repeat(7 , 9vmin);
+		grid-template-rows: repeat(8, 12vmin);
+	}
+}
+.card{
+	height: 100%;
+	width: 100%;
+	display:grid;
+	grid-template-columns: repeat(10 , 10%);
+	grid-template-rows: repeat(10 , 10%);
+	background-color: antiquewhite;
+	border-radius: 20%;
+
+}
+.card img{
+	grid-row: 5/10;
+	grid-column: 5/10;
+	width: 90%;
+	height: 90%;
+}
+.card .rank{
+	grid-row: 2;
+	grid-column: 2;
+	font-size: 2em;
+}
+.card .suit{
+	grid-row: 1;
+}
+.spades{
+}
+.clubs{
+}
+.hearts{
+	color:red;
+}
+.diamonds{
+	color:red;
+}
