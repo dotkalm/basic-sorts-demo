@@ -4,8 +4,13 @@ let dragOverHandlerIndex
 let dragStartHandlerIndex
 let dropHandlerIndex 
 
-function dropHandler(event){
+function dropHandler({target}){
 	event.preventDefault();
+	const { id, className } = target
+	if(id){
+		clearDragZone()
+		makeSwap(dragStartHandlerIndex, dragLeaveHandlerIndex)
+	}
 }
 function dragLeaveHandler({target}){
 	const { id, className } = target
@@ -16,16 +21,9 @@ function dragLeaveHandler({target}){
 			return
 		}
 		if(Number(id) !== Number(dragLeaveHandlerIndex)){
-			console.log(dragLeaveHandlerIndex, id, "<---- drag leave handler")
 			dragLeaveHandlerIndex = Number(id) 
 		}
 	}
-}
-function clearDragZone(){
-	const zoned = document.querySelector('.drag-zone')
-	if(!zoned) return
-	const [ divType, suit ] = zoned.className.split(' ')
-	zoned.setAttribute('class', `${divType} ${suit}`)
 }
 function dragOverHandler({target}){
 	const { id } = target
@@ -35,13 +33,8 @@ function dragOverHandler({target}){
 			dragOverHandlerIndex = Number(id)
 			clearDragZone()
 			target.className = `${target.className} drag-zone`
-			console.log(
-				dragOverHandlerIndex, "\n<---- drag over handler", 
-				dragLeaveHandlerIndex, "\n<---- drag leave handler"
-			)
 		}
 		if(Number(id) !== Number(dragOverHandlerIndex)){
-			console.log(dragOverHandlerIndex, "<---- drag over handler")
 			dragOverHandlerIndex =  undefined
 		}
 	}
@@ -50,10 +43,13 @@ function dragStartHandler({target}){
 	const { id } = target
 	event.preventDefault();
 	if(id !== dragStartHandlerIndex){
-		dragStartHandlerIndex = id
+		dragStartHandlerIndex = Number(id)
 	}
-	if(id === dragStartHandlerIndex){
-		dragStartHandlerIndex = undefined 
-	}
+}
+function clearDragZone(){
+	const zoned = document.querySelector('.drag-zone')
+	if(!zoned) return
+	const [ divType, suit ] = zoned.className.split(' ')
+	zoned.setAttribute('class', `${divType} ${suit}`)
 }
 
