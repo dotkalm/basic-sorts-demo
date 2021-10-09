@@ -6,6 +6,7 @@ function shuffleDeck(){
 		newDeck.push(deck[index])
 		deck.splice(index,1)
 	}
+	return newDeck
 }
 function ranking(){
 	const array = new Array(13)
