@@ -8,7 +8,7 @@ function dragOverHandler(event){
 }
 const deckZone = document.querySelector(".deck-zone")
 function loadDeck(){
-	const deck = generateDeck()
+	const deck = shuffleDeck()
 	console.log(deck)
 	for(const i in deck){
 		const { rank, suit } = deck[i]

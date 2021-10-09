@@ -1,3 +1,13 @@
+function shuffleDeck(){
+	const deck = generateDeck()
+	const newDeck = []
+	while(deck.length > 0){
+		const index = Math.floor(Math.random() * deck.length)
+		newDeck.push(deck[index])
+		deck.splice(index,1)
+	}
+	return newDeck
+}
 function generateDeck(){
   const deck = new Array(52).fill({ suit: '', rank: '' });
   const suits = ['clubs', 'diamonds', 'hearts', 'spades'];
