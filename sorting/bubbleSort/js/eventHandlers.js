@@ -1,4 +1,3 @@
-const deck = shuffleDeck()
 let dragLeaveHandlerIndex
 let dragOverHandlerIndex
 let dragStartHandlerIndex

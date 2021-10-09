@@ -4,6 +4,7 @@
 	box-sizing: border-box;
 }
 .deck-zone{
+	padding:3vmin;
 	display: grid;
 	background-color: pink;
 	align-content: center;
@@ -38,22 +39,31 @@
 	display:grid;
 	grid-template-columns: repeat(10 , 10%);
 	grid-template-rows: repeat(10 , 10%);
-	background-color: antiquewhite;
-	border: .3vmin solid black;
+	background-color: burlywood;
+	border: .5vmin solid burlywood;
 	margin: 2vmin;
-	border-radius: 15%;
+	border-radius: 1vmin;
 	background-size: 80%;
 	background-repeat: no-repeat;
 	background-position-y: 5vmin;
 	background-position-x: 1.5vmin;
 }
 .card .rank{
-	grid-row: 2;
+	grid-row: 1;
 	grid-column: 2;
 	font-size: 2em;
 }
+.card .suit-face{
+	grid-column: 2;
+	grid-row: 5;
+	font-size: 4em;
+	z-index:0;
+}
 .card .suit{
-	grid-row: 1;
+	grid-column: 7/8;
+	grid-row: 2;
+	font-size: 2em;
+	z-index:0;
 }
 .card .drop-zone{
 	background-color: green;
@@ -71,4 +81,16 @@
 
 .drag-zone{
 	opacity: .5
+}
+header{
+	display: flex;
+	background-color: pink;
+	justify-content: space-around;
+	align-content: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: baseline;
+}
+h1{
+	flex: 1;
 }
