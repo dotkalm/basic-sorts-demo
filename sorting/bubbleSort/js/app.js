@@ -7,20 +7,7 @@ function loadDeck(){
 		hearts: "\u2665", 
 	}
 	const deckZone = document.querySelector(".deck-zone")
-	if(swapHappened === null){
-		const header = document.querySelector("header")
-		let swapHappenedLabel = document.querySelector("h1")
-		if(!swapHappenedLabel){
-			swapHappenedLabel = document.createElement("h1")
-			swapHappenedLabel.innerText = "BEGIN"
-			header.appendChild(swapHappenedLabel)
-		}
-	}
-	if(swapHappened === true){
-		const swapHappenedLabel = document.querySelector("h1")
-		swapHappenedLabel.innerText = "Bubbling in Progress"
-	}
-	console.log(swapHappened)
+	checkStatus()
 	for(const i in deck){
 		const { rank, suit } = deck[i]
 		const card = document.createElement("div")
@@ -55,17 +42,28 @@ function makeSwap(from, to){
 	deck[to] = fromElement 
 	deckZone.innerHTML = ''
 	const [ left, right ] = currentPair
-	console.log(from,to,left,right)
 	if(left !== from){
 		swapHappened = true
 	}
 	if(right === 51){
 		currentPair[0] = 0
 		currentPair[1] = 1
+		if(swapHappened === null){
+			swapHappened = false 
+			return
+		}
+		swapHappened = null 
 	}else{
 		currentPair[0] = right 
 		currentPair[1] = right + 1 
 	}
 	loadDeck()
 }
-
+function automateBubble(){
+	//while(swapHappened !== false){ }
+	const [ left, right ] = currentPair
+	const leftCard = deck[left]
+	const rightCard = deck[right]
+	console.log(leftCard, rightCard)
+}
+automateBubble()
