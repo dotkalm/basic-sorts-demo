@@ -67,9 +67,12 @@ header{
 h1{
 	flex: 1;
 }
+h2{
+	line-height:2em;
+}
 .status-header{
 	background-color: yellow;
-	height: 3vmin;
+	height: 100%;
 	width: 100%;
 	text-align: center;
 }
