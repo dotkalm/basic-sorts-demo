@@ -65,10 +65,8 @@ header{
 	align-items: baseline;
 }
 h1{
+	text-align:center;
 	flex: 1;
-}
-h2{
-	line-height:2em;
 }
 .status-header{
 	background-color: yellow;
@@ -93,6 +91,11 @@ h2{
 		grid-template-columns: repeat(7 , 9vmin);
 		grid-template-rows: repeat(8, 12vmin);
 	}
+	.card .rank{
+		grid-row: 1;
+		grid-column: 1;
+		font-size: 1.5em;
+	}
 }
 @media (max-width: 400px) {
 	.deck-zone{
@@ -114,8 +117,8 @@ h2{
 	}
 	.card .rank{
 		grid-row: 1;
-		grid-column: 2;
-		font-size: 1em;
+		grid-column: 1;
+		font-size: .75em;
 	}
 	.card .suit{
 		grid-column: 7/8;
