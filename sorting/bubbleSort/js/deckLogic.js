@@ -1,6 +1,7 @@
 const deck = shuffleDeck()
 let swapHappened = null
 const currentPair = [ 0, 1 ]
+
 function checkStatus(){
 	console.log(deck)
 	if(swapHappened === null){

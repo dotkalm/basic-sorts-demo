@@ -45,6 +45,7 @@ function makeSwap(from, to){
 		currentPair[1] = 1
 		if(swapHappened === null){
 			swapHappened = false 
+			return false
 		}
 		swapHappened = null 
 	}else{
@@ -52,10 +53,10 @@ function makeSwap(from, to){
 		currentPair[1] = right + 1 
 	}
 	loadDeck()
+	return true
 }
 function automateBubble(){
 	const rankingArray = ranking()
-	//while(swapHappened !== false){ }
 	const [ left, right ] = currentPair
 	const leftCard = deck[Number(left)]
 	const rightCard = deck[right]
@@ -66,13 +67,17 @@ function automateBubble(){
 	const rightIndex = getIndex(rightCard)
 	console.log(leftCard, rightCard)
 	console.log(leftIndex, rightIndex)
+	let keepSorting
 	if(leftIndex <= rightIndex){
-		makeSwap(left, right)
+		keepSorting = makeSwap(left, right)
 	}else{
-		makeSwap(right, left)
+		keepSorting = makeSwap(right, left)
+	}
+	if(keepSorting){
+		setTimeout(() => automateBubble(), 1000)
 	}
 }
 window.onload = () => {
 	loadDeck()
-	automateBubble()
+	setTimeout(() => automateBubble(), 1000)
 }
