@@ -1,30 +1,3 @@
-const speeds = [
-	{
-		label: 'fastest',
-		ms: 2
-	},
-	{
-		label: 'faster',
-		ms: 25
-	},
-	{
-		label: 'fast',
-		ms: 250
-	},
-	{
-		label: 'slow',
-		ms: 500
-	},
-	{
-		label: 'slower',
-		ms: 1000 
-	},
-	{
-		label: 'slowest',
-		ms: 2000 
-	},
-]
-let speedSelection = 2
 function loadDeck(){
 	const deckZone = document.querySelector(".deck-zone")
 	checkStatus()
@@ -75,7 +48,7 @@ function makeSwap(from, to){
 	loadDeck()
 	return true
 }
-function automateBubble(){
+async function startDemo(){
 	if(pauseDemo){
 		return
 	}
@@ -98,28 +71,14 @@ function automateBubble(){
 		keepSorting = makeSwap(left, left)
 	}
 	if(keepSorting){
-		setTimeout(() => automateBubble(), speeds[speedSelection].ms)
+		await sleep(speeds[speedSelection].ms)
+		startDemo()
 	}else{
 		loadDeck()
 	}
 }
 
-function buildSelector(){
-	const selectElement = document.querySelector('#demo-speed');
-	selectElement.innerHTML = ``
-	for(const index in speeds){
-		const { label, ms } = speeds[index]
-		const opt = document.createElement('option')
-		opt.setAttribute('value', index)
-		opt.innerText = label
-		if(speeds[speedSelection].ms === ms){
-			opt.setAttribute('selected', true)
-		}
-		selectElement.appendChild(opt)
-	}
-}
-window.onload = () => {
+window.onload = async () => {
 	loadDeck()
 	buildSelector()
-	const selectElement = document.querySelector('option');
 }

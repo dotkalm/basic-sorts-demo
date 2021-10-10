@@ -41,19 +41,17 @@ function makeSwap(from, to){
 	}
 	return true
 }
-const sleep = ms => new Promise((res, rej) => {
-	setTimeout(() => res('slept'), ms)
-}) 
 
-function automateInsertion(){
+async function startDemo(){
 	const whereToPut = compareCurrentToSort() ?? currentIndex
-	makeSwap(currentIndex, whereToPut)
+	if(!pauseDemo && currentIndex<deck.length){
+		await sleep(speeds[speedSelection].ms)
+		makeSwap(currentIndex, whereToPut)
+		return startDemo()
+	}
 }
 window.onload = async () => {
 	loadDeck()
+	buildSelector()
 	checkStatus()
-	for(let i=0; i < deck.length; i++){
-		await sleep(250)
-		automateInsertion()
-	}
 }

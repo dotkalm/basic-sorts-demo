@@ -4,17 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="../js/fixtures.js"></script>
     <script defer src="js/generateDeck.js"></script>
     <script defer src="js/deckLogic.js"></script>
-    <script defer src="js/eventHandlers.js"></script>
+    <script defer src="../js/eventHandlers.js"></script>
     <script defer src="js/app.js"></script>
-    <link href="css/main.css" rel="stylesheet"> 
+    <link href="../styles/globals.css" rel="stylesheet"> 
     <title>INSERTION SORT DEMO</title>
 </head>
 <body>
 	<main>
 		<header>
-			<div class="status-header"><h2></h2></div>
+			<div class="status-header">
+				<select name="speed" id="demo-speed" onchange="optionSelect(event);"> </select>
+		
+				<button onclick="handleClick(event)">Start Demo</button>
+				<h2></h2>
+				<h3>
+					drag elements in place from lowest rank to highest <br>
+					if card is in correct order drag card onto itself
+				</h3>
+			</div>
 		</header>
 		<section class="table-for-sorting">
 			<article class="deck-zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event)" ondrag="dragStartHandler(event);" ondragend="dragEndHandler(event)">
