@@ -15,24 +15,6 @@
 	grid-template-rows: repeat(6 , 12vmin);
 	gap:2vmin;
 }
-@media (max-width: 1250px) {
-	.deck-zone{
-		grid-template-columns: repeat(10 , 9vmin);
-		grid-template-rows: repeat(6 , 12vmin);
-	}
-}
-@media (max-width: 1150px) {
-	.deck-zone{
-		grid-template-columns: repeat(9 , 7vmin);
-		grid-template-rows: repeat(6 , 10vmin);
-	}
-}
-@media (max-width: 925px) {
-	.deck-zone{
-		grid-template-columns: repeat(7 , 9vmin);
-		grid-template-rows: repeat(8, 12vmin);
-	}
-}
 .card{
 	height: 100%;
 	width: 100%;
@@ -91,6 +73,35 @@ h1{
 	width: 100%;
 	text-align: center;
 }
+@media (max-width: 1250px) {
+	.deck-zone{
+		grid-template-columns: repeat(10 , 9vmin);
+		grid-template-rows: repeat(6 , 12vmin);
+	}
+}
+@media (max-width: 1150px) {
+	.deck-zone{
+		grid-template-columns: repeat(9 , 7vmin);
+		grid-template-rows: repeat(6 , 10vmin);
+	}
+}
+@media (max-width: 925px) {
+	.deck-zone{
+		grid-template-columns: repeat(7 , 9vmin);
+		grid-template-rows: repeat(8, 12vmin);
+	}
+}
+@media (max-width: 400px) {
+	.deck-zone{
+		grid-template-columns: repeat(7 , 9vmin);
+		grid-template-rows: repeat(8, 12vmin);
+	}
+	.card .rank{
+		grid-row: 1;
+		grid-column: 2;
+		font-size: 1em;
+	}
+}
 @media (max-height: 500px) {
 	.card{
 		background-size: 80%;
@@ -109,5 +120,5 @@ h1{
 		font-size: 1em;
 		z-index:0;
 	}
-	}
+}
 
