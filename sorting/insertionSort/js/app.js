@@ -53,7 +53,7 @@ window.onload = async () => {
 	loadDeck()
 	checkStatus()
 	for(let i=0; i < deck.length; i++){
-		await sleep(25)
+		await sleep(250)
 		automateInsertion()
 	}
 }
