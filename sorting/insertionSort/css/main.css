@@ -1,0 +1,130 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+.deck-zone{
+	padding:3vmin;
+	display: grid;
+	background-color: pink;
+	align-content: center;
+	justify-items: stretch;
+	justify-content: center;
+	align-items: center;
+	grid-template-columns: repeat(11 , 9vmin);
+	grid-template-rows: repeat(6 , 12vmin);
+	gap:2vmin;
+}
+.card{
+	height: 100%;
+	width: 100%;
+	display:grid;
+	grid-template-columns: repeat(10 , 10%);
+	grid-template-rows: repeat(10 , 10%);
+	background-color: burlywood;
+	border: .5vmin solid burlywood;
+	margin: 2vmin;
+	border-radius: 1vmin;
+	background-size: 80%;
+	background-repeat: no-repeat;
+	background-position-y: 5vmin;
+	background-position-x: 1.5vmin;
+}
+.card .rank{
+	grid-row: 1;
+	grid-column: 2;
+	font-size: 2em;
+}
+.card .suit{
+	grid-column: 7/8;
+	grid-row: 2;
+	font-size: 2em;
+	z-index:0;
+}
+.card .drop-zone{
+	background-color: green;
+}
+.hearts{
+	color:red;
+}
+.diamonds{
+	color:red;
+	background-position-y: 4.5vmin;
+}
+
+.drag-zone{
+	opacity: .5
+}
+header{
+	display: flex;
+	background-color: pink;
+	justify-content: space-around;
+	align-content: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: baseline;
+}
+h1{
+	text-align:center;
+	flex: 1;
+}
+.status-header{
+	background-color: yellow;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+}
+@media (max-width: 1250px) {
+	.deck-zone{
+		grid-template-columns: repeat(10 , 9vmin);
+		grid-template-rows: repeat(6 , 12vmin);
+	}
+}
+@media (max-width: 1150px) {
+	.deck-zone{
+		grid-template-columns: repeat(9 , 7vmin);
+		grid-template-rows: repeat(6 , 10vmin);
+	}
+}
+@media (max-width: 925px) {
+	.deck-zone{
+		grid-template-columns: repeat(7 , 9vmin);
+		grid-template-rows: repeat(8, 12vmin);
+	}
+	.card .rank{
+		grid-row: 1;
+		grid-column: 1;
+		font-size: 1.5em;
+	}
+}
+@media (max-width: 400px) {
+	.deck-zone{
+		grid-template-columns: repeat(7 , 9vmin);
+		grid-template-rows: repeat(8, 12vmin);
+	}
+	.card .rank{
+		grid-row: 1;
+		grid-column: 1;
+		font-size: .75em;
+	}
+}
+@media (max-height: 500px) {
+	.card{
+		background-size: 80%;
+		background-repeat: no-repeat;
+		background-position-y: 5vmin;
+		background-position-x: 1.5vmin;
+	}
+	.card .rank{
+		grid-row: 1;
+		grid-column: 1;
+		font-size: .75em;
+	}
+	.card .suit{
+		grid-column: 7/8;
+		grid-row: 2;
+		font-size: 1em;
+		z-index:0;
+	}
+}
+
