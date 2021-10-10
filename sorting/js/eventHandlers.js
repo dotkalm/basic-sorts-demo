@@ -7,7 +7,7 @@ function optionSelect({target: { value }}){
 	speedSelection = Number(value)
 	buildSelector()
 }
-function handleClick({target}){
+function handleClick(){
 	pauseDemo = !pauseDemo 
 	startDemo()
 	const buttonText = document.querySelector("button")

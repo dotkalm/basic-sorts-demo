@@ -56,9 +56,6 @@ async function startDemo(){
 	const [ left, right ] = currentPair
 	const leftCard = deck[Number(left)]
 	const rightCard = deck[right]
-	function getIndex({rank}){
-		return rankingArray.indexOf(rank)
-	}
 	const leftIndex = getIndex(leftCard)
 	const rightIndex = getIndex(rightCard)
 	const statusText = document.querySelector("h2")

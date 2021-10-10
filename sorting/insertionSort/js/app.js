@@ -49,7 +49,15 @@ async function startDemo(){
 		makeSwap(currentIndex, whereToPut)
 		return startDemo()
 	}
-	return checkSort()
+	const sortedCorrectly = checkSort()
+	if(sortedCorrectly){
+		if(!pauseDemo) handleClick();
+		const header = document.querySelector("header")
+		const statusLabel = document.createElement("h1")
+		statusLabel.innerText = "SORTED!"
+		header.prepend(statusLabel)
+	}
+	return sortedCorrectly
 }
 window.onload = async () => {
 	loadDeck()

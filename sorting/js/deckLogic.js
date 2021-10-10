@@ -1,6 +1,7 @@
 const deck = shuffleDeck()
 let currentIndex = 1
 let indexChecking = null 
+const currentPair = [0,1]
 
 function getIndex({rank}){
 	return ranking().indexOf(rank)
@@ -33,10 +34,9 @@ function checkStatus(){
 		header.prepend(statusLabel)
 	}
 	if(currentIndex === 0){
-		statusLabel.innerText = "Insertion Sort BRB..."
+		statusLabel.innerText = "Sorting BRB..."
 	}
 	if(currentIndex === deck.length - 1){
-		//checkRanking
 		statusLabel.innerText = "SORTED!"
 	}
 }
