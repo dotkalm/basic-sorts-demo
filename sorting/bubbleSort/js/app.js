@@ -65,25 +65,15 @@ function automateBubble(){
 		keepSorting = makeSwap(right, left)
 	}else{
 		statusText.innerText = `${leftIndex} <= ${rightIndex}: not swapping` 
-		if(right === 51){
-			currentPair[0] = 0
-			currentPair[1] = 1
-			if(swapHappened === null){
-				swapHappened = false 
-			}
-			swapHappened = null 
-		}else{
-			currentPair[0] = right 
-			currentPair[1] = right + 1 
-		}
+		keepSorting = makeSwap(left, left)
 	}
 	if(keepSorting){
-		setTimeout(() => automateBubble(), 250)
+		setTimeout(() => automateBubble(), 25)
 	}else{
 		loadDeck()
 	}
 }
 window.onload = () => {
 	loadDeck()
-	setTimeout(() => automateBubble(), 250)
+	setTimeout(() => automateBubble(), 25)
 }
