@@ -44,11 +44,12 @@ function makeSwap(from, to){
 
 async function startDemo(){
 	const whereToPut = compareCurrentToSort() ?? currentIndex
-	if(!pauseDemo && currentIndex<deck.length){
+	if(!pauseDemo && currentIndex < deck.length){
 		await sleep(speeds[speedSelection].ms)
 		makeSwap(currentIndex, whereToPut)
 		return startDemo()
 	}
+	return checkSort()
 }
 window.onload = async () => {
 	loadDeck()
