@@ -2,7 +2,22 @@ let dragLeaveHandlerIndex
 let dragOverHandlerIndex
 let dragStartHandlerIndex
 let dropHandlerIndex 
+let pauseDemo = true
+function optionSelect({target: { value }}){
+	speedSelection = Number(value)
+	buildSelector()
+}
+function handleClick({target}){
+	pauseDemo = !pauseDemo 
+	automateBubble()
+	const buttonText = document.querySelector("button")
+	if(pauseDemo){
+		buttonText.innerText = 'Start Demo'
+		return
+	}
+	buttonText.innerText = 'Pause Demo'
 
+}
 function dragEndHandler({}){
 	clearDragZone()
 }

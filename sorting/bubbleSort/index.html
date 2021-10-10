@@ -14,7 +14,12 @@
 <body>
 	<main>
 		<header>
-			<div class="status-header"><h2></h2></div>
+			<div class="status-header">
+				<select name="speed" id="demo-speed" onchange="optionSelect(event);"> </select>
+		
+				<button onclick="handleClick(event)">Start Demo</button>
+				<h2></h2>
+			</div>
 		</header>
 		<section class="table-for-sorting">
 			<article class="deck-zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event)" ondrag="dragStartHandler(event);" ondragend="dragEndHandler(event)">
