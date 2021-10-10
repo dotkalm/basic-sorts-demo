@@ -1,10 +1,4 @@
 function loadDeck(){
-	const suitMap = { 
-		spades: "\u2660",
-		diamonds: "\u2666",
-		clubs: "\u2663",
-		hearts: "\u2665", 
-	}
 	const deckZone = document.querySelector(".deck-zone")
 	checkStatus()
 	for(const i in deck){
@@ -23,7 +17,6 @@ function loadDeck(){
 		suitCard.setAttribute("class", "suit")
 		card.style.backgroundImage = `url("assets/${suit}.svg")`
 		rankCard.innerText = isNaN(Number(rank)) ? rank[0] : rank
-		suitCard.innerText = suitMap[suit] 
 		card.appendChild(rankCard)
 		card.appendChild(suitCard)
 		deckZone.appendChild(card)
@@ -65,19 +58,32 @@ function automateBubble(){
 	}
 	const leftIndex = getIndex(leftCard)
 	const rightIndex = getIndex(rightCard)
-	console.log(leftCard, rightCard)
-	console.log(leftIndex, rightIndex)
-	let keepSorting
-	if(leftIndex <= rightIndex){
-		keepSorting = makeSwap(left, right)
-	}else{
+	const statusText = document.querySelector("h2")
+	let keepSorting = true
+	if(leftIndex > rightIndex){
+		statusText.innerText = `${leftIndex} > ${rightIndex}: swapping` 
 		keepSorting = makeSwap(right, left)
+	}else{
+		statusText.innerText = `${leftIndex} <= ${rightIndex}: not swapping` 
+		if(right === 51){
+			currentPair[0] = 0
+			currentPair[1] = 1
+			if(swapHappened === null){
+				swapHappened = false 
+			}
+			swapHappened = null 
+		}else{
+			currentPair[0] = right 
+			currentPair[1] = right + 1 
+		}
 	}
 	if(keepSorting){
-		setTimeout(() => automateBubble(), 1000)
+		setTimeout(() => automateBubble(), 250)
+	}else{
+		loadDeck()
 	}
 }
 window.onload = () => {
 	loadDeck()
-	setTimeout(() => automateBubble(), 1000)
+	setTimeout(() => automateBubble(), 250)
 }

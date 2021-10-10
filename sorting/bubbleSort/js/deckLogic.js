@@ -3,14 +3,13 @@ let swapHappened = null
 const currentPair = [ 0, 1 ]
 
 function checkStatus(){
-	console.log(deck)
+	const [ left, right ] = currentPair
 	if(swapHappened === null){
-		const [ left, right ] = currentPair
 		const header = document.querySelector("header")
 		let swapHappenedLabel = document.querySelector("h1")
 		if(!swapHappenedLabel){
 			swapHappenedLabel = document.createElement("h1")
-			header.appendChild(swapHappenedLabel)
+			header.prepend(swapHappenedLabel)
 		}
 		if(left >= 0){
 			swapHappenedLabel.innerText = "Bubbling BRB..."

@@ -53,12 +53,6 @@
 	grid-column: 2;
 	font-size: 2em;
 }
-.card .suit-face{
-	grid-column: 2;
-	grid-row: 5;
-	font-size: 4em;
-	z-index:0;
-}
 .card .suit{
 	grid-column: 7/8;
 	grid-row: 2;
@@ -67,10 +61,6 @@
 }
 .card .drop-zone{
 	background-color: green;
-}
-.spades{
-}
-.clubs{
 }
 .hearts{
 	color:red;
@@ -95,3 +85,29 @@ header{
 h1{
 	flex: 1;
 }
+.status-header{
+	background-color: yellow;
+	height: 3vmin;
+	width: 100%;
+	text-align: center;
+}
+@media (max-height: 500px) {
+	.card{
+		background-size: 80%;
+		background-repeat: no-repeat;
+		background-position-y: 5vmin;
+		background-position-x: 1.5vmin;
+	}
+	.card .rank{
+		grid-row: 1;
+		grid-column: 2;
+		font-size: 1em;
+	}
+	.card .suit{
+		grid-column: 7/8;
+		grid-row: 2;
+		font-size: 1em;
+		z-index:0;
+	}
+	}
+
