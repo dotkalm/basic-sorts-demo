@@ -15,7 +15,7 @@ function loadDeck(){
 		rankCard.setAttribute("class", "rank")
 		const suitCard = document.createElement("div")
 		suitCard.setAttribute("class", "suit")
-		card.style.backgroundImage = `url("assets/${suit}.svg")`
+		card.style.backgroundImage = `url("../assets/${suit}.svg")`
 		rankCard.innerText = isNaN(Number(rank)) ? rank[0] : rank
 		card.appendChild(rankCard)
 		card.appendChild(suitCard)
