@@ -25,7 +25,7 @@ function ranking(){
 				array[index] = 'Ace';
 				break;
 			default:
-				array[index] = String(index);
+				array[index] = String(index + 1);
 		}
 	}
 	return array
