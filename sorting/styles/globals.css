@@ -25,10 +25,10 @@
 	border: .5vmin solid burlywood;
 	margin: 2vmin;
 	border-radius: 1vmin;
-	background-size: 80%;
 	background-repeat: no-repeat;
-	background-position-y: 5vmin;
-	background-position-x: 1.5vmin;
+	background-size: 90%;
+	background-position-x: .5vmin;
+	background-position-y: 4vmin;
 }
 .card .rank{
 	grid-row: 1;
@@ -44,12 +44,17 @@
 .card .drop-zone{
 	background-color: green;
 }
+.clubs{
+	background-size: 90%;
+	background-position-x: .5vmin;
+	background-position-y: 4vmin;
+}
 .hearts{
 	color:red;
 }
 .diamonds{
 	color:red;
-	background-position-y: 4.5vmin;
+	background-position-y: 3vmin;
 }
 
 .drag-zone{
