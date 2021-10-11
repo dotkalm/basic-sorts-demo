@@ -47,20 +47,19 @@ async function startDemo(){
 	if(!pauseDemo && currentIndex < deck.length){
 		await sleep(speeds[speedSelection].ms)
 		makeSwap(currentIndex, whereToPut)
-		return startDemo()
+		return await startDemo()
 	}
 	const sortedCorrectly = checkSort()
 	if(sortedCorrectly){
 		if(!pauseDemo) handleClick();
 		const header = document.querySelector("header")
-		const statusLabel = document.createElement("h1")
+		const statusLabel = document.querySelector("h1")
 		statusLabel.innerText = "SORTED!"
-		header.prepend(statusLabel)
 	}
 	return sortedCorrectly
 }
 window.onload = async () => {
 	loadDeck()
 	buildSelector()
-	checkStatus()
+	checkStatus('Insertion Sort')
 }

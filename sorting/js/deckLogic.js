@@ -26,15 +26,13 @@ function compareCurrentToSort(){
 	}
 	return closestIndex
 }
-function checkStatus(){
+function checkStatus(label){
 	const header = document.querySelector("header")
 	let statusLabel = document.querySelector("h1")
 	if(!statusLabel){
 		statusLabel = document.createElement("h1")
+		statusLabel.innerText = label 
 		header.prepend(statusLabel)
-	}
-	if(currentIndex === 0){
-		statusLabel.innerText = "Sorting BRB..."
 	}
 	if(currentIndex === deck.length - 1){
 		statusLabel.innerText = "SORTED!"

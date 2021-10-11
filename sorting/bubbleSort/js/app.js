@@ -1,6 +1,6 @@
 function loadDeck(){
 	const deckZone = document.querySelector(".deck-zone")
-	checkStatus()
+	checkStatus('Bubble Sort')
 	for(const i in deck){
 		const { rank, suit } = deck[i]
 		const card = document.createElement("div")
@@ -28,7 +28,6 @@ function makeSwap(from, to){
 	const toElement = deck[to]
 	deck[from] = toElement 
 	deck[to] = fromElement 
-	deckZone.innerHTML = ''
 	const [ left, right ] = currentPair
 	if(left !== from){
 		swapHappened = true
@@ -45,6 +44,15 @@ function makeSwap(from, to){
 		currentPair[0] = right 
 		currentPair[1] = right + 1 
 	}
+
+	const sortedCorrectly = checkSort()
+	if(sortedCorrectly){
+		if(!pauseDemo) handleClick();
+		const header = document.querySelector("header")
+		const statusLabel = document.querySelector("h1")
+		statusLabel.innerText = "SORTED!"
+	}
+	deckZone.innerHTML = ''
 	loadDeck()
 	return true
 }

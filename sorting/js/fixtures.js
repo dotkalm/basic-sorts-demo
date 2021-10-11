@@ -25,6 +25,7 @@ const speeds = [
 	},
 ]
 let speedSelection = 2
+
 function buildSelector(){
 	const selectElement = document.querySelector('#demo-speed');
 	selectElement.innerHTML = ``
