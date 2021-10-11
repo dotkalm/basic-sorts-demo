@@ -53,7 +53,7 @@ function generateDeck(){
           element.rank = 'Ace';
           break;
         default:
-          element.rank = String(index);
+          element.rank = String(index + 1);
       }
       deck[num] = element;
     }
